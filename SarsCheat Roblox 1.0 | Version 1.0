@@ -1,0 +1,731 @@
+local UserInputService = game:GetService("UserInputService")
+local plr = game.Players.LocalPlayer
+local plrgui = plr.PlayerGui
+local sgui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local bar = Instance.new("Frame")
+local buttons = Instance.new("Frame")
+local UIgrid = Instance.new("UIGridLayout")
+local name = Instance.new("TextLabel")
+local closeButton = Instance.new("TextButton")
+local minimizeButton = Instance.new("TextButton")
+local infyield = Instance.new("TextButton")
+local ForceLeave = Instance.new("TextButton")
+local DevEx = Instance.new("TextButton")
+local Mini = Instance.new("IntValue")
+local zero = 0
+-- ERROR SCREEN
+local ermain = Instance.new("Frame")
+local erlabel = Instance.new("TextLabel")
+local erclose = Instance.new("TextButton")
+local erleave = Instance.new("TextButton")
+-- About window
+local AboutOpen = Instance.new("TextButton")
+local AboutClose = Instance.new("TextButton") 
+local AboutMain = Instance.new("Frame")
+local AboutBar = Instance.new("Frame")
+local AboutLogo = Instance.new("TextLabel")
+local AboutMainText1 = Instance.new("TextLabel")
+local AboutMainText2 = Instance.new("TextLabel")
+local AboutMainInfo1 = Instance.new("TextLabel")
+local AboutDiscord = Instance.new("TextBox")
+-- modify window
+local ModifyOpen = Instance.new("TextButton")
+local ModifyClose = Instance.new("TextButton")
+local ModifyMini = Instance.new("TextButton")
+local ModifyLogo = Instance.new("TextLabel")
+local ModifyParentTextBox = Instance.new("TextBox")
+local ModifyMain = Instance.new("Frame")
+local ModifyBar = Instance.new("Frame")
+local ModifyFrame = Instance.new("Frame")
+local ModifyMinimi = Instance.new("IntValue")
+local UIgrid0 = UIgrid:Clone()
+-- Radio window
+local RadioOpen = Instance.new("TextButton")
+local RadioClose = Instance.new("TextButton")
+local RadioMini = Instance.new("TextButton")
+local RadioTextBox = Instance.new("TextBox")
+local RadioCheck = Instance.new("TextButton")
+local RadioLooped = Instance.new("TextButton")
+local RadioPlay = Instance.new("TextButton")
+local RadioMain = Instance.new("Frame")
+local RadioBar = Instance.new("Frame")
+local RadioFrame = Instance.new("Frame")
+local RadioIsMini = Instance.new("IntValue")
+local RadioMusic1 = Instance.new("Sound")
+local RadioLogo = Instance.new("TextLabel")
+
+sgui.Name = "SarsCheatTest1"
+sgui.Parent = plrgui
+
+main.Name = "MainFrame"
+main.Parent = sgui
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main.Position = UDim2.new(0, 0, 0, 0)
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.BorderMode = Enum.BorderMode.Outline
+main.BorderSizePixel = 1
+main.Size = UDim2.new(0, 500, 0, 300)
+
+bar.Name = "Bar"
+bar.Parent = main
+bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bar.Position = UDim2.new(0, 0, 0, 0)
+bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+bar.BorderMode = Enum.BorderMode.Outline
+bar.BorderSizePixel = 1
+bar.Size = UDim2.new(0, 500, 0, 40)
+
+buttons.Name = "Buttons"
+buttons.Parent = main
+buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+buttons.Position = UDim2.new(0.02, 0, 0.177, 0)
+buttons.BorderMode = Enum.BorderMode.Outline
+buttons.BorderSizePixel = 0
+buttons.Size = UDim2.new(0, 479, 0, 235)
+
+UIgrid.Name = "uigrid"
+UIgrid.Parent = buttons
+UIgrid.CellSize = UDim2.new(0, 200, 0, 50)
+UIgrid.CellPadding = UDim2.new(0, 5, 0, 5)
+
+name.Name = "Name"
+name.Parent = bar
+name.Position = UDim2.new(0, 0, 0, 0)
+name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+name.BackgroundTransparency = 1
+name.TextScaled = true
+name.Text = "SarsCheat 1.0"
+name.RichText = true
+name.Size = UDim2.new(0, 200, 0, 40)
+name.BorderSizePixel = 0
+
+closeButton.Name = "Close"
+closeButton.Parent = bar
+closeButton.Text = "x"
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.TextSize = 25
+closeButton.Position = UDim2.new(0.914, 0, 0.1, 0)
+closeButton.Size = UDim2.new(0, 32, 0, 32)
+
+minimizeButton.Name = "Minimize"
+minimizeButton.Parent = bar
+minimizeButton.Text = "-"
+minimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.TextSize = 25
+minimizeButton.Position = UDim2.new(0.85, 0, 0.1, 0)
+minimizeButton.Size = UDim2.new(0, 32, 0, 32)
+
+infyield.Name = "ExecuteINF"
+infyield.Parent = buttons
+infyield.Text = "Infinite Yield"
+infyield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+infyield.TextSize = 15
+
+ForceLeave.Name = "ExecuteForceLeave"
+ForceLeave.Parent = buttons
+ForceLeave.Text = "Force leave"
+ForceLeave.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ForceLeave.TextSize = 15
+
+DevEx.Name = "ExecuteDevEx"
+DevEx.Parent = buttons
+DevEx.Text = "DevEx"
+DevEx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DevEx.TextSize = 15
+
+Mini.Parent = main
+Mini.Name = "Mini"
+Mini.Value = 0
+Mini.Archivable = true
+
+AboutOpen.Name = "AboutOpen"
+AboutOpen.Parent = bar
+AboutOpen.Text = "A"
+AboutOpen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AboutOpen.TextSize = 20
+AboutOpen.Position = UDim2.new(0.786, 0, 0.1, 0)
+AboutOpen.Size = UDim2.new(0, 32, 0, 32)
+
+-- modify gui
+ModifyOpen.Name = "ExecuteModifyFrame"
+ModifyOpen.Parent = buttons
+ModifyOpen.Text = "Modify SarsCheat"
+ModifyOpen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyOpen.TextSize = 15
+
+ModifyMain.Name = "ModifyFrame"
+ModifyMain.Parent = sgui
+ModifyMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyMain.Position = UDim2.new(0, 0, 0, 0)
+ModifyMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ModifyMain.BorderMode = Enum.BorderMode.Outline
+ModifyMain.BorderSizePixel = 1
+ModifyMain.Size = UDim2.new(0, 500, 0, 300)
+ModifyMain.Visible = false
+
+ModifyBar.Name = "Bar"
+ModifyBar.Parent = ModifyMain
+ModifyBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyBar.Position = UDim2.new(0, 0, 0, 0)
+ModifyBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ModifyBar.BorderMode = Enum.BorderMode.Outline
+ModifyBar.BorderSizePixel = 1
+ModifyBar.Size = UDim2.new(0, 500, 0, 40)
+
+ModifyClose.Name = "ModifyClose"
+ModifyClose.Parent = ModifyBar
+ModifyClose.Text = "x"
+ModifyClose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyClose.TextSize = 25
+ModifyClose.Position = UDim2.new(0.914, 0, 0.1, 0)
+ModifyClose.Size = UDim2.new(0, 32, 0, 32)
+
+ModifyMini.Name = "ModifyMini"
+ModifyMini.Parent = ModifyBar
+ModifyMini.Text = "-"
+ModifyMini.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyMini.TextSize = 25
+ModifyMini.Position = UDim2.new(0.85, 0, 0.1, 0)
+ModifyMini.Size = UDim2.new(0, 32, 0, 32)
+
+ModifyFrame.Name = "ModFrame"
+ModifyFrame.Parent = ModifyMain
+ModifyFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyFrame.Position = UDim2.new(0.02, 0, 0.177, 0)
+ModifyFrame.BorderMode = Enum.BorderMode.Outline
+ModifyFrame.BorderSizePixel = 0
+ModifyFrame.Size = UDim2.new(0, 479, 0, 235)
+
+ModifyParentTextBox.Name = "MPTB"
+ModifyParentTextBox.Parent = ModifyFrame
+ModifyParentTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyParentTextBox.TextSize = 15
+ModifyParentTextBox.Position = UDim2.new(0, 0, 0, 0)
+ModifyParentTextBox.Size = UDim2.new(0, 479, 0, 50)
+ModifyParentTextBox.PlaceholderText = "Enter directory"
+ModifyParentTextBox.Text = "Still Working On It"
+
+ModifyLogo.Name = "Name"
+ModifyLogo.Parent = ModifyBar
+ModifyLogo.Position = UDim2.new(0, 0, 0, 0)
+ModifyLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModifyLogo.BackgroundTransparency = 1
+ModifyLogo.TextScaled = true
+ModifyLogo.Text = "Modify SarsCheat"
+ModifyLogo.RichText = true
+ModifyLogo.Size = UDim2.new(0, 200, 0, 40)
+ModifyLogo.BorderSizePixel = 0
+
+-- radio gui
+RadioOpen.Name = "ExecuteRadioGui"
+RadioOpen.Parent = buttons
+RadioOpen.Text = "Radio Gui"
+RadioOpen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioOpen.TextSize = 15
+-- about gui
+AboutMain.Name = "AboutMain"
+AboutMain.Parent = sgui
+AboutMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AboutMain.Position = UDim2.new(0, 0, 0, 0)
+AboutMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AboutMain.BorderMode = Enum.BorderMode.Outline
+AboutMain.BorderSizePixel = 1
+AboutMain.Size = UDim2.new(0, 500, 0, 200)
+AboutMain.Visible = false
+
+AboutBar.Name = "AboutBar"
+AboutBar.Parent = AboutMain
+AboutBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AboutBar.Position = UDim2.new(0, 0, 0, 0)
+AboutBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AboutBar.BorderMode = Enum.BorderMode.Outline
+AboutBar.BorderSizePixel = 1
+AboutBar.Size = UDim2.new(0, 500, 0, 40)
+
+AboutClose.Name = "AboutClose"
+AboutClose.Parent = AboutBar
+AboutClose.Text = "x"
+AboutClose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AboutClose.TextSize = 25
+AboutClose.Position = UDim2.new(0.914, 0, 0.1, 0)
+AboutClose.Size = UDim2.new(0, 32, 0, 32)
+
+AboutLogo.Name = "AboutLogo"
+AboutLogo.Parent = AboutBar
+AboutLogo.Position = UDim2.new(0, 0, 0, 0)
+AboutLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AboutLogo.BackgroundTransparency = 1
+AboutLogo.TextScaled = true
+AboutLogo.Text = "About"
+AboutLogo.RichText = true
+AboutLogo.Size = UDim2.new(0, 100, 0, 40)
+AboutLogo.BorderSizePixel = 0
+
+AboutMainText1.Name = "AT1"
+AboutMainText1.Parent = AboutMain
+AboutMainText1.Size = UDim2.new(0, 500, 0, 30)
+AboutMainText1.BackgroundTransparency = 1
+AboutMainText1.TextScaled = true
+AboutMainText1.Text = "Made by sankx_SK"
+AboutMainText1.Position = UDim2.new(0, 0, 0.22, 0)
+
+AboutMainText2.Name = "AT2"
+AboutMainText2.Parent = AboutMain
+AboutMainText2.Size = UDim2.new(0, 500, 0, 30)
+AboutMainText2.BackgroundTransparency = 1
+AboutMainText2.TextScaled = true
+AboutMainText2.Text = "Version: Release 1.0 | SarsCheat 1.0"
+AboutMainText2.Position = UDim2.new(0, 0, 0.4, 0)
+
+AboutMainInfo1.Name = "AT3"
+AboutMainInfo1.Parent = AboutMain
+AboutMainInfo1.Size = UDim2.new(0, 500, 0, 30)
+AboutMainInfo1.BackgroundTransparency = 1
+AboutMainInfo1.TextScaled = true
+AboutMainInfo1.Text = "Testers: chutchit2102"
+AboutMainInfo1.Position = UDim2.new(0, 0, 0.8, 0)
+
+AboutDiscord.Name = "AT4"
+AboutDiscord.Parent = AboutMain
+AboutDiscord.Size = UDim2.new(0, 500, 0, 30)
+AboutDiscord.BackgroundTransparency = 1
+AboutDiscord.TextScaled = true
+AboutDiscord.Text = "https://discord.gg/zAWXdkE6nd"
+AboutDiscord.Position = UDim2.new(0, 0, 0.6, 0)
+AboutDiscord.ClearTextOnFocus = false
+AboutDiscord.TextEditable = false
+
+RadioMain.Name = "RadioMain"
+RadioMain.Parent = sgui
+RadioMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioMain.Position = UDim2.new(0, 0, 0, 0)
+RadioMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RadioMain.BorderMode = Enum.BorderMode.Outline
+RadioMain.BorderSizePixel = 1
+RadioMain.Size = UDim2.new(0, 500, 0, 300)
+RadioMain.Visible = false
+
+RadioBar.Name = "RadioBar"
+RadioBar.Parent = RadioMain
+RadioBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioBar.Position = UDim2.new(0, 0, 0, 0)
+RadioBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RadioBar.BorderMode = Enum.BorderMode.Outline
+RadioBar.BorderSizePixel = 1
+RadioBar.Size = UDim2.new(0, 500, 0, 40)
+
+RadioClose.Name = "RadioClose"
+RadioClose.Parent = RadioBar
+RadioClose.Text = "x"
+RadioClose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioClose.TextSize = 25
+RadioClose.Position = UDim2.new(0.914, 0, 0.1, 0)
+RadioClose.Size = UDim2.new(0, 32, 0, 32)
+
+RadioMini.Name = "RadioMini"
+RadioMini.Parent = RadioBar
+RadioMini.Text = "-"
+RadioMini.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioMini.TextSize = 25
+RadioMini.Position = UDim2.new(0.85, 0, 0.1, 0)
+RadioMini.Size = UDim2.new(0, 32, 0, 32)
+
+RadioLogo.Name = "RadioLogo"
+RadioLogo.Parent = RadioBar
+RadioLogo.Position = UDim2.new(0, 0, 0, 0)
+RadioLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioLogo.BackgroundTransparency = 1
+RadioLogo.TextScaled = true
+RadioLogo.Text = "Radio Gui"
+RadioLogo.RichText = true
+RadioLogo.Size = UDim2.new(0, 200, 0, 40)
+RadioLogo.BorderSizePixel = 0
+
+RadioTextBox.Name = "RadioID"
+RadioTextBox.Parent = RadioMain
+RadioTextBox.Position = UDim2.new(0.018, 0, 0.175, 0)
+RadioTextBox.Size = UDim2.new(0, 230, 0, 50)
+RadioTextBox.PlaceholderText = "Music ID"
+RadioTextBox.Text = ""
+RadioTextBox.TextSize = 25
+RadioTextBox.RichText = true
+RadioTextBox.ClearTextOnFocus = false
+RadioTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+RadioCheck.Name = "RadioCheck"
+RadioCheck.Parent = RadioMain
+RadioCheck.Size = UDim2.new(0, 230, 0, 50)
+RadioCheck.Position = UDim2.new(0.518, 0, 0.175, 0)
+RadioCheck.TextSize = 25
+RadioCheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioCheck.RichText = true
+RadioCheck.Text = "Check ID"
+
+RadioPlay.Name = "RadioPlay"
+RadioPlay.Parent = RadioMain
+RadioPlay.Size = UDim2.new(0, 230, 0, 50)
+RadioPlay.Position = UDim2.new(0.018, 0, 0.375, 0)
+RadioPlay.TextSize = 25
+RadioPlay.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioPlay.RichText = true
+RadioPlay.Text = "Play"
+
+RadioLooped.Name = "RadioLooped"
+RadioLooped.Parent = RadioMain
+RadioLooped.Size = UDim2.new(0, 230, 0, 50)
+RadioLooped.Position = UDim2.new(0.518, 0, 0.375, 0)
+RadioLooped.TextSize = 25
+RadioLooped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RadioLooped.RichText = true
+RadioLooped.Text = "Looped: false"
+
+RadioMusic1.Name = "Music1"
+RadioMusic1.Parent = sgui
+RadioMusic1.Playing = false
+RadioMusic1.Looped = false
+
+ermain.Name = "ERRORMAIN"
+ermain.Parent = sgui
+ermain.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+ermain.Position = UDim2.new(0, 0, 0, 0)
+ermain.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ermain.BorderMode = Enum.BorderMode.Outline
+ermain.BorderSizePixel = 5
+ermain.Size = UDim2.new(0, 527, 0, 109)
+ermain.Visible = false
+
+erlabel.Name = "ERLABEL"
+erlabel.Parent = ermain
+erlabel.Position = UDim2.new(0, 0, 0, 0)
+erlabel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+erlabel.Size = UDim2.new(0, 527, 0, 39)
+erlabel.BorderSizePixel = 5
+erlabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+erlabel.Text = "SYSTEM ERROR OCCURED"
+erlabel.TextScaled = true
+erlabel.RichText = true
+erlabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+erclose.Name = "Close"
+erclose.Parent = ermain
+erclose.Size = UDim2.new(0, 278, 0, 50)
+erclose.Position = UDim2.new(0.028, 0, 0.456, 0)
+erclose.TextScaled = true
+erclose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+erclose.RichText = true
+erclose.Text = "Close SarsCheat"
+erclose.BorderSizePixel = 4
+erclose.BorderColor3 = Color3.fromRGB(0, 0, 0)
+erclose.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+erleave.Name = "Leave"
+erleave.Parent = ermain
+erleave.Size = UDim2.new(0, 210, 0, 50)
+erleave.Position = UDim2.new(0.577, 0, 0.456, 0)
+erleave.TextScaled = true
+erleave.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+erleave.RichText = true
+erleave.Text = "Leave Game"
+erleave.BorderSizePixel = 4
+erleave.BorderColor3 = Color3.fromRGB(0, 0, 0)
+erleave.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Code
+closeButton.MouseButton1Click:Connect(function()
+	sgui:Destroy()
+end)
+
+infyield.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+ForceLeave.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer:Kick("Force leave success")
+end)
+
+DevEx.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+end)
+
+minimizeButton.MouseButton1Click:Connect(function()
+	if Mini.Value == 0 then
+		Mini.Value = 1
+		buttons.Visible = false
+		minimizeButton.Text = "+"
+		main.Transparency = 1
+	else
+		Mini.Value = 0
+		buttons.Visible = true
+		minimizeButton.Text = "-"
+		main.Transparency = 0
+	end
+end)
+
+ModifyOpen.MouseButton1Click:Connect(function()
+	--ModifyMain.Visible = true
+	ermain.Visible = true
+	ModifyOpen:Destroy()
+	infyield:Destroy()
+	ForceLeave:Destroy()
+	RadioOpen:Destroy()
+	DevEx:Destroy()
+	closeButton:Destroy()
+	minimizeButton:Destroy()
+	RadioClose:Destroy()
+	RadioMini:Destroy()
+	AboutOpen:Destroy()
+	RadioTextBox:Destroy()
+	RadioPlay:Destroy()
+	RadioCheck:Destroy()
+	RadioLooped:Destroy()
+end)
+
+ModifyClose.MouseButton1Click:Connect(function()
+	ModifyMain.Visible = false
+end)
+
+ModifyMini.MouseButton1Click:Connect(function()
+	if ModifyMinimi.Value == 0 then
+		ModifyMain.BackgroundTransparency = 1
+		ModifyMini.Text = "+"
+		ModifyMinimi.Value = 1
+		ModifyFrame.Visible = false
+	elseif ModifyMinimi.Value == 1 then
+		ModifyMain.BackgroundTransparency = 0
+		ModifyMini.Text = "-"
+		ModifyMinimi.Value = 0
+		ModifyFrame.Visible = true
+	end
+end)
+
+AboutOpen.MouseButton1Click:Connect(function()
+	AboutMain.Visible = true
+end)
+
+AboutClose.MouseButton1Click:Connect(function()
+	AboutMain.Visible = false
+end)
+
+RadioOpen.MouseButton1Click:Connect(function()
+	RadioMain.Visible = true
+end)
+
+RadioClose.MouseButton1Click:Connect(function()
+	RadioMain.Visible = false
+end)
+
+RadioMini.MouseButton1Click:Connect(function()
+	if RadioIsMini.Value == 0 then
+		RadioMain.BackgroundTransparency = 1
+		RadioMini.Text = "+"
+		RadioIsMini.Value = 1
+		RadioTextBox.Visible = false
+		RadioCheck.Visible = false
+		RadioPlay.Visible = false
+		RadioLooped.Visible = false
+	elseif RadioIsMini.Value == 1 then
+		RadioMain.BackgroundTransparency = 0
+		RadioMini.Text = "-"
+		RadioIsMini.Value = 0
+		RadioTextBox.Visible = true
+		RadioCheck.Visible = true
+		RadioPlay.Visible = true
+		RadioLooped.Visible = true
+	end
+end)
+
+RadioCheck.MouseButton1Click:Connect(function()
+	RadioMusic1.SoundId = "rbxassetid://" ..RadioTextBox.Text
+end)
+
+RadioLooped.MouseButton1Click:Connect(function()
+	if RadioMusic1.Looped == false then
+		RadioMusic1.Looped = true
+		RadioLooped.Text = "Looped: true"
+	elseif RadioMusic1.Looped == true then
+		RadioMusic1.Looped = false
+		RadioLooped.Text = "Looped: false"
+	end
+end)
+
+RadioPlay.MouseButton1Click:Connect(function()
+	if RadioMusic1.Playing == false then
+		RadioMusic1.Playing = true
+		RadioPlay.Text = "Stop"
+	else
+		RadioMusic1.Playing = false
+		RadioPlay.Text = "Play"
+	end
+end)
+
+RadioMusic1.Ended:Connect(function()
+	RadioMusic1.Playing = false
+	RadioPlay.Text = "Play"
+end)
+
+erclose.MouseButton1Click:Connect(function()
+	sgui:Destroy()
+end)
+
+erleave.MouseButton1Click:Connect(function()
+	sgui:Destroy()
+	wait(0.1)
+	game.Players.LocalPlayer:Kick("Safe Kick success")
+end)
+
+------------------------------------------------------------------------------------
+local MainFrame = main 
+local Topbar = bar
+
+local Camera = workspace:WaitForChild("Camera")
+
+local DragMousePosition
+local FramePosition
+
+local Draggable = false
+
+Topbar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = true
+		DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+		FramePosition = Vector2.new(MainFrame.Position.X.Scale, MainFrame.Position.Y.Scale)
+	end
+end)
+
+Topbar.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = false
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if Draggable == true then
+		local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+		MainFrame.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+	end
+end)
+----------------------------
+local ModifyF = ModifyMain
+local ModifyT = ModifyBar
+
+local Camera = workspace:WaitForChild("Camera")
+
+local DragMousePosition
+local FramePosition
+
+local Draggable = false
+
+ModifyT.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = true
+		DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+		FramePosition = Vector2.new(ModifyF.Position.X.Scale, ModifyF.Position.Y.Scale)
+	end
+end)
+
+ModifyT.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = false
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if Draggable == true then
+		local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+		ModifyF.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+	end
+end)
+------------------------------------------------------------------------------------
+local AboutF = AboutMain
+local AboutB = AboutBar
+
+local Camera = workspace:WaitForChild("Camera")
+
+local DragMousePosition
+local FramePosition
+
+local Draggable = false
+
+AboutB.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = true
+		DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+		FramePosition = Vector2.new(AboutF.Position.X.Scale, AboutF.Position.Y.Scale)
+	end
+end)
+
+AboutB.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = false
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if Draggable == true then
+		local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+		AboutF.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+	end
+end)
+------------------------------------------------------------------------------------
+local RadioF = RadioMain
+local RadioB = RadioBar
+
+local Camera = workspace:WaitForChild("Camera")
+
+local DragMousePosition
+local FramePosition
+
+local Draggable = false
+
+RadioBar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = true
+		DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+		FramePosition = Vector2.new(RadioF.Position.X.Scale, RadioF.Position.Y.Scale)
+	end
+end)
+
+RadioBar.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = false
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if Draggable == true then
+		local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+		RadioF.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+	end
+end)
+-------------------------------------------------------------------------------------
+local ERMANE = ermain
+local ERBAR = erlabel
+
+local Camera = workspace:WaitForChild("Camera")
+
+local DragMousePosition
+local FramePosition
+
+local Draggable = false
+
+ERBAR.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = true
+		DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+		FramePosition = Vector2.new(ERMANE.Position.X.Scale, ERMANE.Position.Y.Scale)
+	end
+end)
+
+ERBAR.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Draggable = false
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if Draggable == true then
+		local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+		ERMANE.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+	end
+end)
